@@ -150,7 +150,32 @@ class ProductController extends Controller
             'pembayaran.required' => 'Wajib di isi',
             'kendaraan.required' => 'Wajib di isi'
         ]);
-        
+        if ($request->data){
+
+            $data->validate([
+                'nama' => $request->nama,
+                'nomor_hp' => $request->nomor_hp,
+                'alamat' => $request->alamat,
+                'tanggal' => $request->tanggal,
+                'asal' => $request->asal,
+                'tujuan' => $request->tujuan,
+                'pembayaran' => $request->pembayaran,
+                'kendaraan' => $request->kendaraan,
+            ]);
+                
+
+        }else{
+            $data->update([
+                'nama' => $request->nama,
+                'nomor_hp' => $request->nomor_hp,
+                'alamat' => $request->alamat,
+                'tanggal' => $request->tanggal,
+                'asal' => $request->asal,
+                'tujuan' => $request->tujuan,
+                'pembayaran' => $request->pembayaran,
+                'kendaraan' => $request->kendaraan,
+            ]);
+        }
         
         
 
